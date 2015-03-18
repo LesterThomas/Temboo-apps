@@ -1,0 +1,1 @@
+https://www.fitbit.com/oauth/authorize?oauth_token=fad0cbe60e8587009a5e4d908b2ec8d7&oauth_token_secret=59a2fdaf730c9ad485bade74bc74b7f9&oauth_callback_confirmed=true

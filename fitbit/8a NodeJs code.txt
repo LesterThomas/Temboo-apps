@@ -1,0 +1,23 @@
+// You'll need a single TembooSession object in your code, eg:
+// var tsession = require("temboo/core/temboosession");
+// var session = new tsession.TembooSession("lesterthomas", "myFirstApp", "d9ddfa2787f3411d95feeebff718def4");
+
+var Fitbit = require("temboo/Library/Fitbit/OAuth");
+
+var finalizeOAuthChoreo = new Fitbit.FinalizeOAuth(session);
+
+// Instantiate and populate the input set for the choreo
+var finalizeOAuthInputs = finalizeOAuthChoreo.newInputSet();
+
+// Set inputs
+finalizeOAuthInputs.set_CallbackID("1a733c87-56ad-4ee2-89f5-c8900142bef2");
+finalizeOAuthInputs.set_OAuthTokenSecret("59a2fdaf730c9ad485bade74bc74b7f9");
+finalizeOAuthInputs.set_ConsumerSecret("835b1ae78c3d47fd8e55999b72d8d60d");
+finalizeOAuthInputs.set_ConsumerKey("961558a9391c4fa899809144503c21d8");
+
+// Run the choreo, specifying success and error callback handlers
+finalizeOAuthChoreo.execute(
+    finalizeOAuthInputs,
+    function(results){console.log(results.get_AccessTokenSecret());},
+    function(error){console.log(error.type); console.log(error.message);}
+);
